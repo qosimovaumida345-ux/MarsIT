@@ -97,7 +97,6 @@ function BookPage() {
       setIsModalOpen(false)
     } catch (error) {
       console.error('Error adding book:', error)
-      alert('Failed to add book. Please try again.')
     }
   }
 
