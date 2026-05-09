@@ -76,15 +76,29 @@ function BookPage() {
   const [books, setBooks] = useState(initialBooks)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const handleAddBook = (book) => {
-    setBooks((prevBooks) => [
-      {
-        ...book,
-        id: Date.now(),
-      },
-      ...prevBooks,
-    ])
-    setIsModalOpen(false)
+  const handleAddBook = async (book) => {
+    try {
+      const response = await fetch('https://marsit.onrender.com/books', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(book),
+      })
+
+      if (!response.ok) {
+        throw new Error(`Failed to add book: ${response.status}`)
+      }
+
+      const newBook = await response.json()
+      console.log('Book saved to database:', newBook)
+
+      setBooks((prevBooks) => [newBook, ...prevBooks])
+      setIsModalOpen(false)
+    } catch (error) {
+      console.error('Error adding book:', error)
+      alert('Failed to add book. Please try again.')
+    }
   }
 
   return (

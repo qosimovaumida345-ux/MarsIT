@@ -1,4 +1,5 @@
 import './BookCard.css'
+import placeholderImage from '../../assets/dunyoning-ishlari.png'
 
 function BookCard({ book }) {
   return (
