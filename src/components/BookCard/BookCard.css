@@ -1,0 +1,36 @@
+.book-card {
+  display: flex;
+  gap: 16px;
+  padding: 18px;
+  background: rgb(255, 255, 255);
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+  align-items: flex-start;
+}
+
+.book-card-image img {
+  display: block;
+  width: 120px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.book-card-content h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.book-card-author {
+  margin: 0 0 12px;
+  color: rgb(37, 99, 235);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.book-card-content p {
+  margin: 0;
+  color: rgb(75, 85, 99);
+  line-height: 1.6;
+}

@@ -1,0 +1,42 @@
+.add-book-form {
+  display: grid;
+  gap: 12px;
+}
+
+.add-book-form input,
+.add-book-form textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid rgb(209, 213, 219);
+  border-radius: 8px;
+  font-size: 14px;
+  color: rgb(50, 50, 50);
+  box-sizing: border-box;
+  outline: none;
+  background: rgb(255, 255, 255);
+}
+
+.add-book-form input:focus,
+.add-book-form textarea:focus {
+  border-color: rgb(37, 99, 235);
+}
+
+.add-book-form textarea {
+  resize: vertical;
+}
+
+.add-book-form button {
+  background: rgb(37, 99, 235);
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 12px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.add-book-form button:hover {
+  background: rgb(29, 78, 216);
+}
