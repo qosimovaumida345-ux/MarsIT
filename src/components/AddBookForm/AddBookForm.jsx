@@ -22,8 +22,10 @@ function AddBookForm({ onAddBook }) {
     if (!form.name || !form.author) {
       return
     }
+    console.log('Book added:', form)
     onAddBook(form)
     setForm({
+      ...form,
       name: '',
       author: '',
       imgUrl: '',
