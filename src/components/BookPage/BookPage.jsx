@@ -76,33 +76,9 @@ function BookPage() {
   const [books, setBooks] = useState(initialBooks)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const handleAddBook = async (book) => {
-    try {
-      const bookData = {
-        name: book.name,
-        author: book.author,
-        description: book.description,
-      }
-
-      await fetch('https://marsit.onrender.com/books', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(bookData),
-      })
-
-      setBooks((prevBooks) => [
-        {
-          ...bookData,
-          id: Date.now(),
-        },
-        ...prevBooks,
-      ])
-      setIsModalOpen(false)
-    } catch (error) {
-      //
-    }
+  const handleAddBook = (book) => {
+    console.log('Book added:', book)
+    setIsModalOpen(false)
   }
 
   return (
