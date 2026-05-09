@@ -78,20 +78,22 @@ function BookPage() {
 
   const handleAddBook = async (book) => {
     try {
+      const bookData = {
+        name: book.name,
+        author: book.author,
+        description: book.description,
+      }
+
       const response = await fetch('https://marsit.onrender.com/books', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(book),
+        body: JSON.stringify(bookData),
       })
 
-      if (!response.ok) {
-        throw new Error(`Failed to add book: ${response.status}`)
-      }
-
       const newBook = await response.json()
-      console.log('Book saved to database:', newBook)
+      console.log('Book saved successfully:', newBook)
 
       setBooks((prevBooks) => [newBook, ...prevBooks])
       setIsModalOpen(false)
