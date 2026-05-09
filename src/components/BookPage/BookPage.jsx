@@ -84,7 +84,7 @@ function BookPage() {
         description: book.description,
       }
 
-      const response = await fetch('https://marsit.onrender.com/books', {
+      await fetch('https://marsit.onrender.com/books', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -92,13 +92,16 @@ function BookPage() {
         body: JSON.stringify(bookData),
       })
 
-      const newBook = await response.json()
-      console.log('Book saved successfully:', newBook)
-
-      setBooks((prevBooks) => [newBook, ...prevBooks])
+      setBooks((prevBooks) => [
+        {
+          ...bookData,
+          id: Date.now(),
+        },
+        ...prevBooks,
+      ])
       setIsModalOpen(false)
     } catch (error) {
-      console.error('Error adding book:', error)
+      //
     }
   }
 
